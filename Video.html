@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Video Gallery</title>
+</head>
+<body oncontextmenu="return false">
+    <div class="container">
+        <h1>Video Gallery</h1>
+        <div id="video_player">
+            <video controls poster="" class="video" id="video">
+                <source src="./videos/1.mp4" type="video/mp4">
+                <source src="./videos/1.mp4" type="video/mp4">
+            </video>
+            <div class="scrollBox">
+                <div class="box">
+                	<br>
+                	<br>
+                	<br>
+                    <img src="./images/pic1.png">
+                    <div class="box-content">
+                        <h3>DIY Handmade Valentine Card <br> by doityourselfcraft2020</h3>
+                      <a href="./videos/1.mp4" class="btn">Watch</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="box">
+                    <img src="./images/pic2.png">
+                    <div class="box-content">
+                        <h3>Don't Judge the Book by its Cover <br> by Ariel Lopez</h3>
+                        <a href="./videos/2.mp4" class="btn">Watch</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="box">
+                    <img src="./images/pic3.png">
+                    <div class="box-content">
+                        <h3>Napakadali lang pala gawin <br> by Stephen benihagan</h3>
+                        <a href="./videos/3.mp4" class="btn">Watch</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="box">
+                    <img src="./images/pic4.png">
+                    <div class="box-content">
+                        <h3>Send this to your crush you have to tell him/her <br> by m1ss1ss1p1</h3>
+                        <a href="./videos/4.mp4" class="btn">Watch</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="box">
+                    <img src="./images/pic5.png">
+                    <div class="box-content">
+                        <h3>Im in Pain <br> by Queengirlgameri8</h3>
+                        <a href="./videos/5.mp4"class="btn">Watch</a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="box">
+                    <img src="./images/pic6.png">
+                    <div class="box-content">
+                        <h3>Thankyou for all your help kuruma <br> by Shinobi21 </h3>
+                        <a href="./videos/6.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ###########################javascript for vidoe Player################ -->
+
+    <script type="text/javascript">
+        let anchors = document.querySelectorAll('div .btn');
+    let links = [...anchors];
+    
+    for (let i=0; i<links.length; i++) {
+        links[i].onclick = handler;
+    }
+    function handler(e) {
+        e.preventDefault();
+        let videotarget = this.getAttribute("href");
+        let filename = videotarget.substr(0, videotarget.lastIndexOf('.'));
+        let video = document.getElementById("video");
+        video.removeAttribute("poster");
+        let source = document.querySelectorAll("#video_player video source");
+        source[0].src = filename + ".mp4";
+        source[1].src = filename + ".mp4";
+        video.load();
+        video.play();
+    }
+    </script>
+
+</body>
+</html>
